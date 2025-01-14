@@ -41,7 +41,7 @@ This is just **Version 1.0**, and there’s a lot more coming in future releases
 
 ## **Check Out the Project:**
 
-👉 [Enhance Your Typing Speed on GitHub](https://github.com/Diptanu761/Enhance-Your-Typing-Speed)
+👉 [Enhance Your Typing Speed on GitHub](https://diptanu761.github.io/Enhance-Your-Typing-Speed/)
 
 ---
 
