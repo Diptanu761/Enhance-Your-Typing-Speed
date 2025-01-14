@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enhance Your Typing Speed</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="homepage">
+    <div class="homepage-container">
+      <h1>Type Up Your Speed</h1>
+      <form id="gameForm">
+        <div class="form-group">
+          <label for="playerName">Enter Your Name:</label>
+          <input type="text" id="playerName" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <label for="difficulty">Select Difficulty:</label>
+          <select id="difficulty" required>
+            <option value="easy">Easy (4-letter words)</option>
+            <option value="medium">Medium (6-letter words)</option>
+            <option value="difficult">Difficult (5-8 letter words)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="category">Choose Category:</label>
+          <select id="category" required>
+            <option value="science">Science</option>
+            <option value="computer">Computer</option>
+            <option value="technology">Technology</option>
+          </select>
+        </div>
+        <button type="submit" id="startGameButton">Start Game</button>
+      </form>
+    </div>
+  </div>
+  <div id="gamePage" style="display: none;">
+    <div class="container">
+      <h1>Type Up Your Speed</h1>
+      <div id="word-container">
+        <div class="word" id="active-word">Start</div>
+      </div>
+      <input type="text" id="input-box" placeholder="Type here..." autofocus />
+      <div class="stats">
+        <p>Score: <span id="score">0</span></p>
+        <p>Time: <span id="time">30</span>s</p>
+      </div>
+    </div>
+    <div id="game-over-modal" class="modal">
+      <div class="modal-content">
+        <h2>Game Over!</h2>
+        <p>You typed <span id="total-words">0</span> words correctly!</p>
+        <p>Your final score is <span id="final-score">0</span></p>
+        <p>Don’t worry! Keep practicing and you’ll get faster next time!</p>
+        <button id="restart-btn">Restart Game</button>
+        <button id="backToMenuButton">Back to Menu</button>
+      </div>
+    </div>
+    <audio id="correct-sound" preload="auto">
+      <source src="sound/correct-sound.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="game-over-sound" preload="auto">
+      <source src="sound/game-over-sound.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
