@@ -57,10 +57,15 @@ I appreciate your support and feedback. Together, let’s make typing fun and fa
 
 ---
 
-### **Screenshots/Preview (Optional)**
+## **Screenshots & Video Preview**
 
-You can add images or GIFs to showcase the functionality or design of the website.
+### Screenshots:
+Here’s a preview of the website:
 
-For example:
-```markdown
-![Website Preview](https://your-image-link.com)
+![Screenshot 1](images/screenshot1.png)
+![Screenshot 2](images/screenshot2.png)
+
+### Video Preview:
+Watch this video to get an overview of the website's features:
+
+[![Video Thumbnail](images/screenshot1.png)](https://drive.google.com/file/d/19z_ZONWk1pW3Tvvekkn_Lmohesi-QKur/view?usp=sharing)
