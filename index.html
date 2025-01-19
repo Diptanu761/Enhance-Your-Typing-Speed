@@ -21,7 +21,7 @@
         <div class="form-group">
           <label for="inputType">Type:</label>
           <select id="inputType" required>
-            <option value="word">Words</option>
+            <option value="word">Words (Not Available)</option>
             <option value="sentence">Sentences</option>
           </select>
         </div>
@@ -60,7 +60,7 @@
     <div id="game-over-modal" class="modal">
       <div class="modal-content">
         <h2>Game Over!</h2>
-        <p>You typed <span id="total-words">0</span> words correctly!</p>
+        <p id="final-message">You typed <span id="total-words">0</span> words correctly!</p>
         <p>Your final score is <span id="final-score">0</span></p>
         <p>Don’t worry! Keep practicing and you’ll get faster next time!</p>
         <button id="restart-btn">Restart Game</button>
