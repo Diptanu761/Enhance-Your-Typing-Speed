@@ -19,10 +19,17 @@
           <input type="text" id="playerName" placeholder="Your Name" required>
         </div>
         <div class="form-group">
+          <label for="inputType">Type:</label>
+          <select id="inputType" required>
+            <option value="word">Words</option>
+            <option value="sentence">Sentences</option>
+          </select>
+        </div>
+        <div class="form-group" id="difficulty-options">
           <label for="difficulty">Select Difficulty:</label>
           <select id="difficulty" required>
-            <option value="easy">Easy (4-letter words)</option>
-            <option value="medium">Medium (6-letter words)</option>
+            <option value="easy">Easy (4 letter words)</option>
+            <option value="medium">Medium (6 letter words)</option>
             <option value="difficult">Difficult (5-8 letter words)</option>
           </select>
         </div>

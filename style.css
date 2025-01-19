@@ -1,4 +1,5 @@
 /* General Styles */
+/* General Styles */
 @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Bubblegum+Sans&display=swap');
 
 body {
@@ -43,9 +44,29 @@ h1 {
   text-align: left;
 }
 
+.sentence {
+  font-size: 20px;
+  color: #2596be;
+  text-align: left;
+  white-space: pre-wrap;
+  line-height: 1;
+}
 
+.letter {
+  font-size: 4rem;
+  color: #2596be;
+}
+
+.letter.correct {
+  color: #77ec73;
+}
+
+.letter.incorrect {
+  color: #ce4848;
+}
+.sentence-letter
 label {
-  font-size: 1.2rem;
+  font-size: 1rem;
   display: block;
   margin-bottom: 8px;
 }
@@ -107,7 +128,7 @@ h1 {
   position: relative;
   margin: 40px 0;
   height: 100px;
-  font-size: 60px;
+  font-size: 35px;
   color: #2596be;
 }
 
@@ -118,6 +139,15 @@ h1 {
   /* Light olive green */
   display: inline-block;
   transition: transform 0.3s, font-size 0.3s;
+}
+
+
+.sentence-letter.correct {
+  color: #77ec73;
+}
+
+.sentence-letter.incorrect {
+  color: #ce4848;
 }
 
 .word.active {

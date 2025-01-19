@@ -21,15 +21,142 @@ let timerInterval = null;
 
 const wordBanks = {
   science: [
-    "Atom", "Mole", "Cell", "Gene", "Heat", "Wave", "Ion", "Dust", "Test", "Flow", "Plan", "Acid", "Base", "Salt", "Zinc", "Carbon", "Neut", "Volt", "Spin", "Bond", "Sun", "Star", "Mars", "Glow", "Earth", "Soil", "Leaf", "Path", "Rift", "Foss", "Rock", "Dust", "Heat", "Mole", "Fish", "Virus", "Gene", "Pore", "Brain", "Lens", "Plant", "Trace", "Fiber", "Brain", "Globe", "Atom", "Heat", "Zinc", "Lunar", "Electron", "Virus", "Water", "Bones", "Charge", "Pulse", "Field", "Laser", "Quartz", "DNA", "Ozone", "Flare", "Pulse", "Light", "Curve", "Speed", "Grain", "Cells", "Orbit", "Slope", "Meteor", "Glare", "Proton", "Gamma", "Crust", "Solar", "Bloom", "Straw", "Toxic", "Acids", "Grasp", "Blend", "Atoms", "Bacteria", "Biomes", "Cycle", "Chlor", "Proton", "Nucleus", "Magnet", "Graph", "Signal", "Energy", "Plastic", "Evolve", "Carbon", "Fusion", "Photon", "Tissue", "Genes", "Molecule", "Mineral", "Brain", "Neutron", "Strain", "Orbit", "Filter", "Growth", "Liquid", "Chemic", "Cellar", "Radius", "Nitrate", "Toxic", "Cortex", "Cloud", "Crust", "Magma", "Ozone", "Ionics", "Grains", "Genetic", "Gasses", "Absorber", "Magnetic", "Cytoplasm", "Genome", "Ecosystem", "Isotope", "Tension", "Biology", "Photon", "Element", "Nucleus", "Absence", "Particle", "Alkaline", "Bacteria", "Solvent", "Cohesion", "Wavelength", "Germline", "Thermal", "Sodium", "Hydrogen", "Molecule", "Vortex", "Cellular", "Solvent", "Tectonic", "Comet", "Cavity", "Stratus", "Zinc", "Crater", "Lattice", "Magnet", "Precip", "Reticle", "Velocity", "Digest", "Insoles", "Conductor", "Filter", "Chemical", "Absorber", "Nucleus", "Magnetic", "Ionizing", "Ecosystem", "Oxygenic", "Tension", "Protein", "Neutral", "Genome", "Tectonic", "Molecule", "Fusion", "Solvent", "Acidity", "Ionizing", "Dioxide", "Catalyst", "Magnetism", "Thermal", "Gravitas", "Velocity", "Plasma", "Geology", "Geosphere", "Solvent", "Pressure", "Spectra", "Protein", "Reactive", "Quantum", "Crystals", "Electric", "Conductor", "Cohesion", "Compounds", "Diffusion", "Breathing", "Cometary", "Biology"
+    "Conductor", "Cohesion", "Compounds", "Diffusion", "Breathing", "Cometary", "Biology"
   ],
   computer: [
-    "Disk", "Byte", "Code", "Data", "File", "App", "Node", "Page", "Host", "Ping", "Port", "Task", "User", "Link", "Java", "HTML", "CSS", "URL", "Bug", "Edit", "Save", "Load", "Debug", "Swap", "Print", "Info", "Scan", "Code", "Root", "Mode", "Line", "Free", "Text", "Type", "Login", "Shell", "Byte", "Read", "Node", "Pool", "Frame", "Input", "Cloud", "Cache", "Linux", "Drive", "Logic", "Query", "Debug", "Link", "Path", "Model", "Script", "Script", "Array", "Input", "Bytes", "Style", "Token", "Server", "Count", "Block", "Space", "Flash", "Access", "Plugin", "JavaS", "Macro", "Radio", "Script", "Token", "Data", "Device", "Power", "Clock", "Write", "Query", "Trace", "Keypad", "Video", "Block", "Socket", "Server", "Codec", "Pixel", "Render", "Cache", "Script", "Input", "Output", "Device", "Login", "Upload", "Encrypt", "Buffer", "Debug", "Proxy", "Screen", "Cluster", "Browser", "Cursor", "Buffer", "Module", "Linux", "Query", "Cloud", "Button", "Kernel", "Patch", "Virus", "System", "Cycle", "Editor", "Client", "Socket", "Matrix", "Array", "Logic", "Format", "Router", "Driver", "Cloud", "Delete", "Network", "Server", "Browser", "Database", "Program", "Hardware", "Offline", "System", "Backup", "Logfile", "Digital", "Folder", "Monitor", "Compiler", "Scripting", "Coding", "Storage", "Output", "Server", "Packet", "Terminal", "Protocol", "Capture", "Memory", "Refresh", "Interface", "Upload", "Access", "Module", "Client", "Porting", "Cache", "Widget", "Device", "Password", "Scanner", "Login", "FileSystem", "Output", "Script", "Database", "Analyzer", "Software", "Security", "Programmer", "Compiler", "Networked", "Hardware", "Firewall", "Services", "Protocol", "Monitor", "Mobile", "Virtual", "Encrypts", "Keyboard", "Scanner", "Circuit", "Modem", "Navigator", "Interface", "Processing", "Encryption", "Algorithm", "Gateway", "Function", "Compiler", "Userbase", "Backend", "Frontend", "Bitrate", "Routing", "Directory", "Bitmap", "Backup", "Transfer", "Updater", "Datacenter", "Drive", "Operating", "Loader"
+    "Updater", "Datacenter", "Drive", "Operating", "Loader"
   ],
   technology: [
-    "Gear", "Bolt", "Wire", "Lock", "Chip", "Tool", "Code", "Heat", "Node", "Fuel", "Vibe", "Data", "Lens", "Cell", "Band", "Wave", "Flip", "Tear", "Plug", "Screw", "Grip", "Frame", "Mode", "Disc", "Port", "Test", "Ring", "Rack", "Volt", "Fuse", "Wind", "Magnet", "Pulse", "Data", "Latch", "Core", "Belt", "Pipe", "Clamp", "Mesh", "Tank", "Drive", "Laser", "Panel", "Block", "Clamp", "Shift", "Plaza", "Mount", "Churn", "Crank", "Glove", "Patch", "Hinge", "Frame", "Spray", "Tank", "Valve", "Power", "Motor", "Torque", "Shove", "Hook", "Chain", "Torch", "Scale", "Boost", "Plane", "Grill", "Press", "Grasp", "Tight", "Weld", "Brake", "Joints", "Grip", "Ledge", "Spare", "Spray", "Driver", "Laser", "Panel", "Block", "Clamps", "Ledge", "Circuit", "Impact", "Gravel", "Sprung", "Socket", "Shield", "Latch", "Crank", "Grind", "Piston", "Frame", "Battery", "Power", "Joints", "Brakes", "Plates", "Cables", "Screws", "Spray", "Grill", "Hinge", "Torch", "Lifter", "Pulley", "Clutch", "Shifter", "Rivets", "Moulds", "Tighten", "Jumper", "Frames", "Lifter", "Gears", "Valve", "Starter", "Crinkle", "Grinder", "Lifter", "Circuit", "Bracket", "Gasket", "Pulley", "Welding", "Tension", "Pistons", "Filters", "Riveted", "Springs", "Liners", "Engines", "Clutch", "Motor", "Belted", "Locking", "Cables", "Trigger", "Gearing", "Magnet", "Friction", "Screws", "Drives", "Levered", "Plates", "Spray", "Turbine", "Machine", "Socket", "Strains", "Lenses", "Rotary", "Moulds", "Bridges", "Fixing", "Rivets", "Engineer", "Circuitry", "Backbone", "Encoder", "Turbines", "Welding", "Friction", "Solenoid", "Scanner", "Plumbing", "Motorized", "Bracket", "Control", "Pistons", "Magnetic", "Helix", "Cooling", "Pulleys", "Cables", "Tension", "Caliper", "Machines", "Plates", "Shields", "Electrode", "Tighten", "Grinders", "Latchers", "Sprayers", "Coating", "Mechanic", "Drill", "Crossover", "Structure", "Compress", "Mounting", "Gaskets", "Filters", "Sensors",
+    "Compress", "Mounting", "Gaskets", "Filters", "Sensors"
   ]
 };
+
+const sentenceBanks = {
+  science: [
+    "The Doppler effect describes the change in frequency of a wave relative to an observer.",
+    "Earth's magnetic field is generated by movements in  its molten outer core",
+    "Sound travels faster in solids than in liquids and gases."
+  ],
+  computer: [
+    "Each keystroke writes a line of code,",
+    "Building programs, breaking the mode.",
+    "Typing swiftly, let ideas run,",
+    "In the world of logic, you’ve just begun."
+  ],
+  technology: [
+    "With every key, the future’s near,",
+    "Typing sharpens the tech frontier.",
+    "Innovations grow with every tap,",
+    "You hold the world within your lap."
+  ]
+};
+
+const sentenceTimers = {
+  easy: 260,
+  medium: 200,
+  difficult: 130
+}
+
+function initializeGame() {
+  if (mode === "sentence") {
+    words = sentenceBanks[selectedCategory];
+  } else {
+    words = wordBanks[selectedCategory];
+  }
+
+  currentWordIndex = 0;
+  score = 0;
+  timer = calculateInitialTime(selectedDifficulty);
+  currentWord = words[currentWordIndex];
+  updateUI();
+}
+
+inputBox.addEventListener("input", () => {
+  const inputText = inputBox.value.trim();
+
+  if (mode === "sentence") {
+    if (inputText === currentWord) {
+      correctInput();
+    }
+  } else {
+    // For word mode
+    if (inputText.toLowerCase() === currentWord.toLowerCase()) {
+      correctInput();
+    }
+  }
+});
+
+function correctInput() {
+  correctSound.play();
+  score++; // Increment score
+  scoreDisplay.textContent = score; // Update score on screen
+  inputBox.value = ""; // Clear input box
+  currentWordIndex++; // Move to the next word/sentence
+  if (currentWordIndex < words.length) {
+    if (mode === "sentence") {
+      displaySentence(); // Update for sentence mode
+    } else {
+      displayWord(); // Update for word mode
+    }
+  } else {
+    endGame(); // End the game if all words are completed
+  }
+}
+function calculateInitialTime(difficulty, mode) {
+  let time = 0;
+
+  if (mode === 'words') {
+    // Time limits for Words Mode
+    switch (difficulty) {
+      case 'easy':
+        time = 100; // 100 seconds for Easy
+        break;
+      case 'medium':
+        time = 80; // 80 seconds for Medium
+        break;
+      case 'hard':
+        time = 50; // 50 seconds for Hard
+        break;
+      default:
+        console.error("Invalid difficulty level for Words Mode");
+    }
+  } else if (mode === 'sentence') {
+    // Time limits for Sentence Mode
+    switch (difficulty) {
+      case 'easy':
+        time = 260; // 260 seconds for Easy
+        break;
+      case 'medium':
+        time = 200; // 200 seconds for Medium
+        break;
+      case 'hard':
+        time = 130; // 130 seconds for Hard
+        break;
+      default:
+        console.error("Invalid difficulty level for Sentence Mode");
+    }
+  } else {
+    console.error("Invalid mode. Please use 'words' or 'sentence'.");
+  }
+
+  return time;
+}
+
+document.querySelectorAll(".mode-select").forEach((btn) =>
+  btn.addEventListener("click", (e) => {
+    mode = e.target.dataset.mode;
+  })
+);
+
+document.querySelectorAll(".difficulty-select").forEach((btn) =>
+  btn.addEventListener("click", (e) => {
+    selectedDifficulty = e.target.dataset.difficulty;
+  })
+);
+
+let inputType = "word";
+let sentences = [];
+let currentSentence = "";
 
 console.log(window.location.href);
 
@@ -40,27 +167,52 @@ function shuffleArray(array) {
   }
 }
 
+function updateDifficultyOptions(inputType) {
+  const difficultySection = document.getElementById("difficult-section");
+  const difficultyOptions = difficultySection.querySelectorAll("option");
+
+  if (inputType === "sentence") {
+    // update options
+    difficultyOptions[0].textcontent = "Easy (4 min 20sec)"
+    difficultyOptions[1].textContent = "Medium (3min 20sec)"
+    difficultyOptions[2].textContent = "Difficult (2min 10sec)"
+  } else {
+    // reset options for words
+    difficultyOptions[0].textcontent = "Easy (4 letter words)"
+    difficultyOptions[1].textcontent = "Easy (6 letter words)"
+    difficultyOptions[2].textcontent = "Easy (5-8 ltter words)"
+  }
+}
+
 function setupGame() {
   console.log("Setting up game...");
-  switch (selectedDifficulty) {
-    case "easy":
-      timer = 100;
-      words = wordBanks[selectedCategory].filter(word => word.length === 4);
-      break;
-    case "medium":
-      timer = 80;
-      words = wordBanks[selectedCategory].filter(word => word.length === 6);
-      break;
-    case "difficult":
-      timer = 50;
-      words = wordBanks[selectedCategory].filter(word => word.length >= 6 && word.length <= 8);
-      break;
-    default:
-      console.error("Invalid difficulty or category.");
-      return;
+
+  if (inputType === "word") {
+    switch (selectedDifficulty) {
+      case "easy":
+        timer = 100;
+        words = wordBanks[selectedCategory].filter(word => word.length === 4);
+        break;
+      case "medium":
+        timer = 80;
+        words = wordBanks[selectedCategory].filter(word => word.length === 6);
+        break;
+      case "difficult":
+        timer = 50;
+        words = wordBanks[selectedCategory].filter(word => word.length >= 6 && word.length <= 8);
+        break;
+      default:
+        console.error("Invalid difficulty or category.");
+        return;
+    }
+    shuffleArray(words);
+  } else if (inputType === "sentence") {
+    timer = sentenceTimers[selectedDifficulty];
+    stanzas = sentenceBanks[selectedCategory];
+    shuffleArray(sentences);
+    currentSentence = sentences[0];
   }
 
-  shuffleArray(words);
   currentWordIndex = 0; // Reset word index
   score = 0; // Reset score
   scoreDisplay.textContent = score;
@@ -70,7 +222,7 @@ function setupGame() {
 function displayWord() {
   if (currentWordIndex < words.length) {
     currentWord = words[currentWordIndex];
-    wordContainer.innerHTML = ""; // Clear previous word
+    wordContainer.innerHTML = "";
     currentWord.split("").forEach(letter => {
       const letterSpan = document.createElement("span");
       letterSpan.className = "letter";
@@ -78,50 +230,105 @@ function displayWord() {
       wordContainer.appendChild(letterSpan);
     });
   } else {
-    endGame(); // Only ends when all words are completed
+    endGame(); // Correctly end game when all words are done
   }
 }
 
+function displaySentence() {
+  if (currentWordIndex < sentences.length) {
+    currentSentence = sentences[currentWordIndex];
+    wordContainer.innerHTML = ""; // Clear previous content
+    currentSentence.split("").forEach((char) => {
+      const charSpan = document.createElement("span");
+      charSpan.className = "sentence-letter";
+      charSpan.textContent = char;
+      wordContainer.appendChild(charSpan);
+    });
+  } else {
+    endGame();
+  }
+}
+
+// Add an event listener for input tracking
+inputBox.addEventListener("input", () => {
+  const inputText = inputBox.value;
+  const letters = document.querySelectorAll("#word-container .letter");
+
+  letters.forEach((letterSpan, index) => {
+    if (index < inputText.length) {
+      const typedChar = inputText[index];
+
+      if (typedChar === letterSpan.textContent) {
+        letterSpan.classList.add("correct");
+        letterSpan.classList.remove("incorrect");
+      } else {
+        letterSpan.classList.add("incorrect");
+        letterSpan.classList.remove("correct");
+      }
+    } else {
+      // Reset styles for untouched letters
+      letterSpan.classList.remove("correct", "incorrect");
+    }
+  });
+
+  // Check if the entire sentence is completed
+
+}
+);
+
+let gameEnded = false;
+
 function startGame() {
-  console.log("Starting game...");
+  gameEnded = false;
+  inputBox.disabled = false;
+
   if (!selectedDifficulty || !selectedCategory) {
-    console.error("Game setup is incomplete. Please choose difficulty and category.");
+    console.error("Game setup is incomplete.");
     return;
   }
 
-  // Reset timer and states
-  clearInterval(timerInterval);
   setupGame();
-
-  // Display the first word and reset input
-  displayWord();
   inputBox.value = "";
-  inputBox.focus();
   inputBox.disabled = false;
 
-  // Start the timer
-  timerInterval = setInterval(() => {
-    timer--;
-    timeDisplay.textContent = timer;
+  if (inputType === "word") {
+    displayWord();
+  } else if (inputType === "sentence") {
+    displaySentence();
+  }
 
-    if (timer <= 0) {
-      endGame();
-    }
-  }, 1000);
+  clearInterval(timerInterval);
+    timerInterval = setInterval(() => {
+        if (!gameEnded) { // Check before decrementing
+            timer--;
+            timeDisplay.textContent = timer;
 
-  // Ensure only one event listener is attached
-  inputBox.removeEventListener("input", handleInput);
-  inputBox.addEventListener("input", handleInput);
+            if (timer <= 0) {
+                endGame();
+            }
+        }
+    }, 1000);
+
+    if (inputType === "word") {
+      inputBox.removeEventListener("input", handleSentenceInput);
+      inputBox.addEventListener("input", handleInput);
+   } else if (inputType === "sentence") {
+      inputBox.removeEventListener("input", handleInput);
+      inputBox.addEventListener("input", handleSentenceInput);
+   }
 }
 
 function endGame() {
-  console.log("Game Over...");
-  clearInterval(timerInterval);
-  inputBox.disabled = true;
-  gameOverSound.play();
-  totalWordsDisplay.textContent = score;
-  finalScoreDisplay.textContent = score;
-  gameOverModal.style.display = "flex";
+  if (!gameEnded) { // Check the flag before executing endGame logic
+    gameEnded = true; // Set the flag immediately
+    console.log("Game Over...");
+    clearInterval(timerInterval);
+    inputBox.disabled = true;
+    gameOverSound.play();
+    totalWordsDisplay.textContent = score;
+    finalScoreDisplay.textContent = score;
+    gameOverModal.style.display = "flex";
+  }
 }
 
 function resetGame() {
@@ -134,27 +341,70 @@ function resetGame() {
 }
 
 function handleInput() {
-  const typedText = inputBox.value.trim();
-  const wordLetters = document.querySelectorAll(".letter");
+  if (gameEnded) return; // Immediately exit if the game has ended
 
+  const typedText = inputBox.value.trim().toLowerCase(); // Lowercase here
+  const currentWordLower = currentWord.toLowerCase(); // Lowercase here too
+
+  const wordLetters = document.querySelectorAll(".letter");
   wordLetters.forEach((letterSpan, index) => {
-    const typedChar = typedText[index];
+      const typedChar = typedText[index];
+      if (typedChar === undefined) {
+          letterSpan.className = "letter";
+      } else if (typedChar === letterSpan.textContent.toLowerCase()) {
+          letterSpan.className = "letter correct";
+      } else {
+          letterSpan.className = "letter incorrect";
+      }
+  });
+
+  if (typedText === currentWordLower) {
+      score++;
+      scoreDisplay.textContent = score;
+      correctSound.play();
+      inputBox.value = "";
+      currentWordIndex++;
+
+      if (currentWordIndex < words.length) {
+          displayWord();
+      } else {
+          endGame();
+      }
+  }
+}
+
+function handleSentenceInput() {
+  const input = inputBox.value; // Get the current input value
+  const sentenceLetters = document.querySelectorAll(".sentence-letter");
+
+  // Loop through each letter in the displayed sentence
+  sentenceLetters.forEach((letterSpan, index) => {
+    const typedChar = input[index]; // Get the corresponding typed character
+
     if (typedChar === undefined) {
-      letterSpan.className = "letter";
+      // If the user hasn't typed this character yet
+      letterSpan.classList.remove("correct", "incorrect");
     } else if (typedChar === letterSpan.textContent) {
-      letterSpan.className = "letter correct";
+      // If the character matches
+      letterSpan.classList.add("correct");
+      letterSpan.classList.remove("incorrect");
     } else {
-      letterSpan.className = "letter incorrect";
+      // If the character doesn't match
+      letterSpan.classList.add("incorrect");
+      letterSpan.classList.remove("correct");
     }
   });
 
-  if (typedText === currentWord) {
-    score++;
-    scoreDisplay.textContent = score;
+  // Check if the entire sentence matches the input
+  if (input.trim() === currentSentence) {
     correctSound.play();
-    inputBox.value = "";
-    currentWordIndex++;
-    displayWord();
+    inputBox.value = ""; // Clear the input box
+    currentWordIndex++; // Move to the next sentence
+    if (currentWordIndex < sentences.length) {
+      displaySentence(); // Display the next sentence
+    } else {
+      endGame(); // End the game if all sentences are completed
+    }
   }
 }
 
@@ -168,14 +418,14 @@ backToMenuButton.addEventListener("click", () => {
 
   // Hide game over modal
   gameOverModal.style.display = "none";
-  
+
   // Reset inline styles or states
   document.body.style.margin = "0";
   document.body.style.padding = "0";
   document.body.style.position = "relative";
 
   // Navigate to homepage
-  window.location.href = "http://127.0.0.1:5500/";
+  window.location.href = "/";
 
   // Reset game state
   clearInterval(timerInterval);
@@ -228,6 +478,30 @@ document.addEventListener("DOMContentLoaded", () => {
   const homepage = document.getElementById("homepage");
   const gamePage = document.getElementById("gamePage");
   const gameForm = document.getElementById("gameForm");
+  const inputTypeSelector = document.getElementById("inputType");
+  const difficultySelector = document.getElementById("difficulty");
+
+  function updateDifficultyOptions(inputType) {
+    if (inputType === "sentence") {
+      difficultySelector.innerHTML = `
+        <option value="easy">Easy (4 min 20sec)</option>
+        <option value="medium">Medium (3min 20sec)</option>
+        <option value="difficult">Difficult (2min 10sec)</option>
+      `;
+    } else if (inputType === "word") {
+      difficultySelector.innerHTML = `
+        <option value="easy">Easy (4 letter word)</option>
+        <option value="medium">Medium (6 letter word)</option>
+        <option value="difficult">Difficult (5-8 letter word)</option>
+      `;
+    }
+  }
+
+  // Attach change event listener to the input type dropdown
+  inputTypeSelector.addEventListener("change", () => {
+    const selectedType = inputTypeSelector.value; // Get the selected input type
+    updateDifficultyOptions(selectedType); // Update difficulty options dynamically
+  });
 
   gameForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -235,10 +509,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const playerName = document.getElementById("playerName").value;
     selectedDifficulty = document.getElementById("difficulty").value;
     selectedCategory = document.getElementById("category").value;
+    inputType = document.getElementById("inputType").value;
 
     console.log("Player Name:", playerName);
     console.log("Difficulty:", selectedDifficulty);
     console.log("Category:", selectedCategory);
+    console.log("Input Type:", inputType);
+
+    if (inputType === "sentence") {
+      sentences = sentenceBanks[selectedCategory];
+      shuffleArray(sentences);
+      currentSentence = sentences[0];
+    } else {
+      words = wordBanks[selectedCategory];
+      shuffleArray(words);
+    }
 
     homepage.style.display = "none";
     gamePage.style.display = "block";
